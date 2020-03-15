@@ -10,6 +10,7 @@
 
   import EmployeeIndexPage from 'EmployeeIndexPage.vue'
   import EmployeeDetailPage from 'EmployeeDetailPage.vue'
+  import EmployeeNewPage from 'EmployeeNewPage.vue'
 
   // 指定のURLにリクエストが来たらまずここを経由する。
   // 次にそのpathに基づくcomponentのファイルを探す。
@@ -23,7 +24,10 @@
         name: 'EmployeeDetailPage',
         // ↑ ルートに名前を付けている
         // rootからリンクを貼るのに必要 ref. https://router.vuejs.org/ja/guide/essentials/named-routes.html
-        component: EmployeeDetailPage  }
+        component: EmployeeDetailPage  },
+      { path: '/employees/new',
+        name: 'EmployeeNewPage',
+        component: EmployeeNewPage    }
     ]
   })
 
