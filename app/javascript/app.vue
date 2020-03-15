@@ -1,44 +1,38 @@
 <template>
-  <div id="app">
-    <table>
-      <tbody>
-        <tr>
-          <th>ID</th>
-          <th>name</th>
-          <th>department</th>
-          <th>gender</th>
-        </tr>
-        <tr v-for="e in employees" :key="e.id">
-          <td>{{ e.id }}</td>
-          <td>{{ e.name }}</td>
-          <td>{{ e.department }}</td>
-          <td>{{ e.gender }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+  import Vue from 'vue'
+  import VueRouter from 'vue-router'
 
-export default {
-  data: function () {
-    return {
-      employees: []
-    }
-  },
-  mounted () {
-    axios
-      .get('/api/v1/employees.json')
-      .then(response => (this.employees = response.data))
+  import EmployeeIndexPage from 'EmployeeIndexPage.vue'
+  import EmployeeDetailPage from 'EmployeeDetailPage.vue'
+
+  // 指定のURLにリクエストが来たらまずここを経由する。
+  // 次にそのpathに基づくcomponentのファイルを探す。
+  // 見つけたらその内容を表示する。
+  // そのファイルに書かれている処理（API->controller->...）を実行する。
+  const router = new VueRouter({
+    routes: [
+      { path: '/',
+        component: EmployeeIndexPage },
+      { path: '/employees/:id(\\d+)',  // :id は数値のみに制限する
+        name: 'EmployeeDetailPage',
+        // ↑ ルートに名前を付けている
+        // rootからリンクを貼るのに必要 ref. https://router.vuejs.org/ja/guide/essentials/named-routes.html
+        component: EmployeeDetailPage  }
+    ]
+  })
+
+  Vue.use(VueRouter)
+
+  export default {
+    router
   }
-}
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
