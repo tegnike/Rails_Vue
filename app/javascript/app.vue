@@ -11,6 +11,7 @@
   import EmployeeIndexPage from 'EmployeeIndexPage.vue'
   import EmployeeDetailPage from 'EmployeeDetailPage.vue'
   import EmployeeNewPage from 'EmployeeNewPage.vue'
+  import EmployeeEditPage from 'EmployeeEditPage.vue'
 
   // 指定のURLにリクエストが来たらまずここを経由する。
   // 次にそのpathに基づくcomponentのファイルを探す。
@@ -27,7 +28,10 @@
         component: EmployeeDetailPage  },
       { path: '/employees/new',
         name: 'EmployeeNewPage',
-        component: EmployeeNewPage    }
+        component: EmployeeNewPage    },
+      { path: '/employees/:id(\\d+)/edit',
+        name: 'EmployeeEditPage',
+        component: EmployeeEditPage   }
     ]
   })
 
