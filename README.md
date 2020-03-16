@@ -1,24 +1,5 @@
-# README
+# Rails & Vue.js　練習用
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 参考
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [Ruby on Rails, Vue.js で始めるモダン WEB アプリケーション入門](https://qiita.com/tatsurou313/items/4f18c0d4d231e2fb55f4)
